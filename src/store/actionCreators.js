@@ -1,6 +1,11 @@
 // 1.提高代码的可维护性，2.自动化测试的方便
-import { CHANGE_INPUT_VALUE, ADD_ITEM_VALUE, DELETE_INPUT_VALUE,INIT_LIST_ACTION} from "./actionTypes";
-import axios from 'axios';
+import { 
+  CHANGE_INPUT_VALUE, 
+  ADD_ITEM_VALUE, 
+  DELETE_INPUT_VALUE,
+  INIT_LIST_ACTION,
+  GET_INIT_LIST
+} from "./actionTypes";
 export const getInputChangeAction = (value) => ({
   type: CHANGE_INPUT_VALUE,
   value
@@ -20,12 +25,9 @@ export const initListAction = (data) => ({
   data
 });
 
-export const getTodoList = () => {
-  return (dispatch) => {
-    axios.get("/list.json").then((res) => {
-      const data = res.data;
-      const action = initListAction(data);
-      dispatch(action);
-    });
-  }
-}
+export const getInitList = () => ({
+  type: GET_INIT_LIST
+
+});
+
+
