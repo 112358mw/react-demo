@@ -12,7 +12,6 @@ const defaultState = {
 // state 指的是上一次的state的数据
 // 纯函数指的是，给定固定的输入，就一定优固定的输出，而且不会优任何副作用
 export default (state = defaultState, action) => {  
-  console.log(state, action);
   if(action.type === CHANGE_INPUT_VALUE) {
     const newState = JSON.parse(JSON.stringify(state));
     newState.inputValue = action.value;
